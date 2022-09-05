@@ -41,10 +41,11 @@ def add_to_csv():
         tree.delete(each)
     id += 1
     total_price = 0
+    price_label.config(text=total_price)
 
 
 def Save():
-    save = f"item {date}.csv"
+    save = f"./Data/item {date}.csv"
     data.to_csv(save)
 
 
