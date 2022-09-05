@@ -45,7 +45,7 @@ def add_to_csv():
 
 
 def Save():
-    save = f"./Data/item {date}.csv"
+    save = f"./item {date}.csv"
     data.to_csv(save)
 
 
