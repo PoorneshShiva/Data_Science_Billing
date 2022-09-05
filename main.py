@@ -44,10 +44,6 @@ def add_to_csv():
         # data = pandas.concat([data,new], axis=0, ignore_index=True)
         tree.delete(each)
     id += 1
-    print(data)
-    print(total_price)
-
-    # print(tree.item(tree.get_children()[0])['values'][0])
 
 
 def Save():
