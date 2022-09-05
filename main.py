@@ -11,9 +11,6 @@ store_items = {
 }
 items = pd.read_csv('items.csv', index_col=False)
 
-ask = 2
-print((items.price[(items.id == ask) | (items.name == ask)]))
-
 
 id = 0
 ddict = {
@@ -32,7 +29,6 @@ total_price = 0
 
 def add_to_csv():
     global data, label_count, id, total_price
-    print(label_count)
     for each in tree.get_children():
         item = tree.item(each)['values'][0]
         quantity = tree.item(each)['values'][1]
@@ -44,6 +40,7 @@ def add_to_csv():
         # data = pandas.concat([data,new], axis=0, ignore_index=True)
         tree.delete(each)
     id += 1
+    total_price = 0
 
 
 def Save():
@@ -91,15 +88,9 @@ def Add():
 def Delete():
     global total_price
     selected_tree = tree.selection()
-    print(selected_tree)
-    print("index")
-    print(tree.index(selected_tree))
-    # print(tree.column())
-    # print(tree.item())
     for each in selected_tree:
         price_to_remove =(tree.item(item=each)['values'][2])
         tree.delete(each)
-        print(each)
         total_price -= price_to_remove
     price_label.config(text=total_price)
 
